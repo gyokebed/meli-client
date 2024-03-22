@@ -1,6 +1,7 @@
 'use client';
 
 import axios from 'axios';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -20,7 +21,9 @@ const SearchResults = () => {
   return (
     <ul>
       {data.slice(0, 4).map((item) => (
-        <li key={item.id}>{item.title}</li>
+        <li key={item.id}>
+          <Link href={`/items/${item.id}`}>{item.title}</Link>
+        </li>
       ))}
     </ul>
   );
