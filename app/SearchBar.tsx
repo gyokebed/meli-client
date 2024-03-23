@@ -27,7 +27,7 @@ const SearchBar = () => {
             <Image src="/Logo_ML.png" width={53} height={36} alt="Logo" />
           </Link>
         </div>
-        <div className="col-12 col-md-8">
+        <div className="col-12 col-md-9">
           <input
             placeholder="Nunca dejes de buscar"
             type="text"

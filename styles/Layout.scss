@@ -6,6 +6,7 @@ $black: #333333;
 .search {
   background-color: $yellow;
   padding: 8px 0;
+  margin-bottom: 16px;
   input {
     width: calc(100% - 40px);
     height: 100%;
@@ -33,8 +34,36 @@ $black: #333333;
   }
 }
 
+.results {
+  padding: 16px 0;
+  div {
+    &:first-child {
+      display: flex;
+      align-items: center;
+    }
+  }
+  a img {
+    margin: 0 16px;
+    border-radius: 4px;
+  }
+  span {
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: normal;
+  }
+  p {
+    font-size: 12px;
+    margin-top: 45px;
+  }
+}
+
 $columns: 12;
-$gap: 30px;
+$gap: 15px;
 $breakpoints: (
     xs: 480px,
     sm: 768px,
