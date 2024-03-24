@@ -1,4 +1,4 @@
-import { Logo, SearchForm } from './components';
+import { Logo, SearchForm } from '@/app/components';
 
 const SearchBar = () => {
   return (

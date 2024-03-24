@@ -1,11 +1,11 @@
 'use client';
 
+import { CurrencyFormat, ShippingBadge } from '@/app/components';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { ShippingBadge } from '../components';
 
 const SearchResults = () => {
   const [data, setData] = useState<
@@ -45,7 +45,7 @@ const SearchResults = () => {
             <div>
               <div className="m-b-2x">
                 <div className="text-xs-2x m-r inline">
-                  <span>$ {item.price.amount} </span>
+                  <CurrencyFormat currencyId="ARS" value={item.price.amount} />
                 </div>
                 {item.free_shipping && <ShippingBadge />}
               </div>

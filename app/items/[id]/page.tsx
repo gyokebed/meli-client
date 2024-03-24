@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { CurrencyFormat } from '@/app/components';
 import axios from 'axios';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 interface Props {
   params: { id: string };
@@ -63,7 +64,7 @@ const ProductDetail = ({ params }: Props) => {
         )}
         <h1 className="m-b-2x">{data.item.title}</h1>
         <div className="text-xl m-b-2x">
-          <span>$ {data.item.price.amount} </span>
+          <CurrencyFormat currencyId="ARS" value={data.item.price.amount} />
         </div>
         <div className="m-r-2x">
           <button
