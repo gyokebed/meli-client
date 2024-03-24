@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import SearchBar from './SearchBar';
+import QueryClientProvider from './QueryClientProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SearchBar />
-        <main>{children}</main>
+        <QueryClientProvider>
+          <SearchBar />
+          <main>{children}</main>
+        </QueryClientProvider>
       </body>
     </html>
   );
