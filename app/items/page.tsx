@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { ShippingBadge } from '../components';
 
 const SearchResults = () => {
   const [data, setData] = useState<
@@ -46,14 +47,7 @@ const SearchResults = () => {
                 <div className="text-xs-2x m-r inline">
                   <span>$ {item.price.amount} </span>
                 </div>
-                {item.free_shipping && (
-                  <Image
-                    src="/ic_shipping@2x.png.png"
-                    width={18}
-                    height={18}
-                    alt="Free Shipping"
-                  />
-                )}
+                {item.free_shipping && <ShippingBadge />}
               </div>
               <Link href={`/items/${item.id}`}>
                 <h1 className="text-lg text-lg__base">{item.title}</h1>

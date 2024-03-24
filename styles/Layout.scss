@@ -4,35 +4,39 @@ $gray-middle: #999999;
 $black: #333333;
 $blue: #3483FA;
 
-.search {
+.search-bar {
   background-color: $yellow;
-  padding: 8px 0;
-  margin-bottom: 16px;
-  input {
-    width: calc(100% - 40px);
-    height: 100%;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    color: $black;
-    &::placeholder {
-      color: $gray-middle; 
-      font-size: 26;
+  padding: 12px 0;
+  form {
+    height: 40px;
+    input {
+      flex-basis: 95%;
+      border: none;
+      padding: 10px;
+      color: $black;
+      height: 100%;
+      &::placeholder {
+        color: $gray-middle; 
+      }
     }
-  }
-  button {
-    width: 40px;
-    height: 100%;
-    background-color: $gray-soft;
-    &:disabled {
-      cursor: auto;
-      opacity: .6;
+    button {
+      flex-basis: 5%;
+      background-color: $gray-soft;
+      height: 100%;
+      &:disabled {
+        cursor: auto;
+        opacity: .6;
+      }
     }
   }
 }
 
 .flex {
   display: flex;
+  align-items: center;
+}
+
+.center {
   align-items: center;
 }
 
