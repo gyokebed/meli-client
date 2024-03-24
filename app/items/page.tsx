@@ -1,36 +1,45 @@
 'use client';
 
 import { CurrencyFormat, ShippingBadge } from '@/app/components';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+
+interface Products {
+  id: string;
+  title: string;
+  picture: string;
+  price: { amount: number };
+  free_shipping: boolean;
+}
 
 const SearchResults = () => {
-  const [data, setData] = useState<
-    {
-      id: string;
-      title: string;
-      picture: string;
-      price: { amount: number };
-      free_shipping: boolean;
-    }[]
-  >([]);
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get('search');
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3000/api/items?q=${searchTerm}`)
-      .then((resp) => {
-        setData(resp.data.items);
-      });
-  }, [searchParams]);
+  const {
+    data: products,
+    error,
+    isLoading,
+  } = useQuery<Products[]>({
+    queryKey: ['products'],
+    queryFn: () =>
+      axios
+        .get(`http://localhost:3000/api/items?q=${searchTerm}`)
+        .then((res) => res.data.items),
+    staleTime: 60 * 1000, // 60s
+    retry: 3,
+  });
+
+  if (isLoading) return 'Cargando...';
+
+  if (error) return null;
 
   return (
     <>
-      {data.slice(0, 4).map((item) => (
+      {products?.slice(0, 4).map((item) => (
         <div className="grid p-y" key={item.id}>
           <div className="col-12 col-md-8 col-offset-1 flex">
             <Link href={`/items/${item.id}`}>
