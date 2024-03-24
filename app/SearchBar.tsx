@@ -34,7 +34,7 @@ const SearchBar = () => {
             value={searchTerm}
             onChange={handleChange}
           />
-          <button type="submit" disabled={!!!searchTerm}>
+          <button className="btn" type="submit" disabled={!!!searchTerm}>
             <Image
               src="/ic_Search.png"
               width={15}

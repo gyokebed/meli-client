@@ -2,6 +2,7 @@ $yellow: #FFE600;
 $gray-soft: #EEEEEE;
 $gray-middle: #999999;
 $black: #333333;
+$blue: #3483FA;
 
 .search {
   background-color: $yellow;
@@ -23,10 +24,6 @@ $black: #333333;
     width: 40px;
     height: 100%;
     background-color: $gray-soft;
-    border: none;
-    &:hover {
-      cursor: pointer;
-    }
     &:disabled {
       cursor: auto;
       opacity: .6;
@@ -34,31 +31,123 @@ $black: #333333;
   }
 }
 
-.results {
-  padding: 16px 0;
-  div {
-    &:first-child {
-      display: flex;
-      align-items: center;
-    }
-  }
-  a img {
-    margin: 0 16px;
-    border-radius: 4px;
-  }
-  span {
-    font-size: 24px;
-    display: inline-block;
-    margin-right: 8px;
-    margin-bottom: 32px;
-  }
-  h2 {
-    font-size: 18px;
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.p-x {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.p-y {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.m-x {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.m-y {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.m-r {
+  margin-right: 16px;
+}
+
+.m-b {
+  margin-bottom: 16px;
+}
+
+.m-t-2x {
+  margin-top: 32px;
+}
+
+.m-b-2x {
+  margin-bottom: 32px;
+}
+
+.m-l-2x {
+  margin-left: 32px;
+}
+
+.m-r-2x {
+  margin-right: 48px;
+}
+.m-l-2x {
+  margin-left: 48px;
+}
+
+
+.m-t-3x {
+  margin-top: 48px;
+}
+
+.border-sm {
+  border-radius: 4px;
+}
+
+.border-md {
+  border-radius: 8px;
+}
+
+.text-xs {
+  font-size: 12px;
+}
+.text-xs-2x {
+  font-size: 24px; 
+}
+.text-sm {
+  font-size: 14px;
+}
+.text-sm-2x {
+  font-size: 28px;
+}
+.text-md {
+  font-size: 16px;
+}
+.text-lg {
+  font-size: 18px;
+  &__base {
     font-weight: normal;
   }
-  p {
-    font-size: 12px;
-    margin-top: 45px;
+
+}
+.text-xl {
+  font-size: 46px;
+}
+
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 18px;
+}
+.inline {
+  display: inline;
+}
+.mb-16 {
+  margin-bottom: 16px;
+}
+.mb-32 {
+  margin-bottom: 32px;
+}
+.btn {
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  &-lg {
+    background-color: $blue;
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    border-radius: 8px;
   }
 }
 
