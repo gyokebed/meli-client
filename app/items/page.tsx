@@ -29,7 +29,6 @@ const SearchResults = () => {
       axios
         .get(`http://localhost:3000/api/items?q=${searchTerm}`)
         .then((res) => res.data.items),
-    // staleTime: 60 * 1000, // 60s
     retry: 3,
   });
 
