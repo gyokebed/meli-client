@@ -23,19 +23,19 @@ const SearchResults = () => {
     data: products,
     error,
     isLoading,
-  } = useQuery<Products[]>({
-    queryKey: ['products'],
+  } = useQuery<Products[], Error>({
+    queryKey: ['products', searchTerm],
     queryFn: () =>
       axios
         .get(`http://localhost:3000/api/items?q=${searchTerm}`)
         .then((res) => res.data.items),
-    staleTime: 60 * 1000, // 60s
+    // staleTime: 60 * 1000, // 60s
     retry: 3,
   });
 
   if (isLoading) return 'Cargando...';
 
-  if (error) return null;
+  if (error) return error.message;
 
   return (
     <>
