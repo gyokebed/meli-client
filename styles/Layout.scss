@@ -30,83 +30,68 @@ $blue: #3483FA;
     }
   }
 }
-
 .flex {
   display: flex;
   align-items: center;
 }
-
 .center {
   align-items: center;
 }
-
+.text-center {
+  text-align: center;
+}
 .p-x {
   padding-left: 16px;
   padding-right: 16px;
 }
-
 .p-y {
   padding-top: 16px;
   padding-bottom: 16px;
 }
-
 .m-x {
   margin-left: 16px;
   margin-right: 16px;
 }
-
 .m-y {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-
 .m-r {
   margin-right: 16px;
 }
-
 .m-l {
   margin-left: 16px;
 }
-
 .m-b {
   margin-bottom: 16px;
 }
 .m-t {
   margin-top: 16px;
 }
-
 .m-t-2x {
   margin-top: 32px;
 }
-
 .m-b-2x {
   margin-bottom: 32px;
 }
-
 .m-l-2x {
   margin-left: 32px;
 }
-
 .m-r-2x {
   margin-right: 48px;
 }
 .m-l-3x {
   margin-left: 48px;
 }
-
-
 .m-t-3x {
   margin-top: 48px;
 }
-
 .border-sm {
   border-radius: 4px;
 }
-
 .border-md {
   border-radius: 8px;
 }
-
 .text-xs {
   font-size: 12px;
 }
@@ -127,12 +112,10 @@ $blue: #3483FA;
   &__base {
     font-weight: normal;
   }
-
 }
 .text-xl {
   font-size: 46px;
 }
-
 h1 {
   font-size: 24px;
 }
@@ -161,7 +144,6 @@ h2 {
     border-radius: 8px;
   }
 }
-
 $columns: 12;
 $gap: 15px;
 $breakpoints: (
@@ -171,7 +153,6 @@ $breakpoints: (
     lg: 1170px,
     xl: 1280px
 );
-
 @mixin create-selectors($breakpoint: null) {
     $infix: if($breakpoint == null, '', '-#{$breakpoint}');
 
@@ -190,16 +171,19 @@ $breakpoints: (
         }
     }
 }
-
 .grid {
     display: grid;
     grid-template-columns: repeat($columns, 1fr);
     grid-gap: $gap;
     gap: $gap;
+    padding: 20px;
 }
-
+@media only screen and (min-width: 1170px) {
+ .grid {
+    padding: 0;
+ }
+}
 @include create-selectors;
-
 @each $breakpoint, $width in $breakpoints {
     @media (min-width: $width) {
         @include create-selectors($breakpoint);
