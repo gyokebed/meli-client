@@ -20,7 +20,7 @@ const useProduct = (id: string) => {
   return useQuery<Product, Error>({
     queryKey: ['detail', id],
     queryFn: () => fetchProduct(id),
-    staleTime: 0,
+    staleTime: 60 * 1000,
     retry: 3,
   });
 };

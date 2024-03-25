@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Logo = ({ to }: { to: string }) => {
   return (
     <Link href={to}>
-      <Image src="/Logo_ML.png" width={53} height={36} alt="Logo" />
+      <Image src="/img/Logo_ML@2x.png.png" width={53} height={36} alt="Logo" />
     </Link>
   );
 };

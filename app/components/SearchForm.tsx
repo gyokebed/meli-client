@@ -28,7 +28,12 @@ const SearchForm = () => {
         className=""
       />
       <button className="btn" type="submit" disabled={!!!searchTerm}>
-        <Image src="/ic_Search.png" width={15} height={15} alt="Search image" />
+        <Image
+          src="/img/ic_Search@2x.png.png"
+          width={15}
+          height={15}
+          alt="Search image"
+        />
       </button>
     </form>
   );

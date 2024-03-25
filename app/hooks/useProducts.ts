@@ -20,6 +20,7 @@ const useProduct = (searchTerm: string | null) => {
   return useQuery<Products[], Error>({
     queryKey: ['products', searchTerm],
     queryFn: () => fetchProducts(searchTerm),
+    staleTime: 60 * 1000,
     retry: 3,
   });
 };
