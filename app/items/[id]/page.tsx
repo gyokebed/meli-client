@@ -7,14 +7,16 @@ interface Props {
 }
 
 const ProductDetailPage = ({ params }: Props) => {
-  console.log(params);
-
   return <ProductDetail params={params} />;
 };
 
 export default ProductDetailPage;
 
-export const metadata: Metadata = {
-  title: `MELI - Detalle del producto`,
-  description: 'Detalle del producto',
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = params.id;
+
+  return {
+    title: `ID del producto: ${id}`,
+    description: 'Detalle del producto.',
+  };
+}
