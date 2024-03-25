@@ -17,7 +17,7 @@ const ProductDetail = ({ params }: Props) => {
 
   if (error) return error.message;
 
-  const condition = product!.condition === 'new';
+  const condition = product!.condition.toString() === 'new';
 
   return (
     <div className="grid">
@@ -47,7 +47,7 @@ const ProductDetail = ({ params }: Props) => {
         </div>
         <div className="m-r-2x">
           <button
-            onClick={() => console.log('Comprar')}
+            onClick={() => console.log('Comprar [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]')}
             className="btn btn-lg text-lg"
           >
             Comprar

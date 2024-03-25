@@ -1,36 +1,16 @@
 'use client';
 
 import { CurrencyFormat, ShippingBadge } from '@/app/components';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import useProducts from '@/app/hooks/useProducts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-
-interface Products {
-  id: string;
-  title: string;
-  picture: string;
-  price: { amount: number };
-  free_shipping: boolean;
-}
 
 const SearchResults = () => {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get('search');
 
-  const {
-    data: products,
-    error,
-    isLoading,
-  } = useQuery<Products[], Error>({
-    queryKey: ['products', searchTerm],
-    queryFn: () =>
-      axios
-        .get(`http://localhost:3000/api/items?q=${searchTerm}`)
-        .then((res) => res.data.items),
-    retry: 3,
-  });
+  const { data: products, error, isLoading } = useProducts(searchTerm);
 
   if (isLoading) return 'Cargando...';
 
