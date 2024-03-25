@@ -5,9 +5,10 @@ import useProducts from '@/app/hooks/useProducts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import SearchResultsSkeleton from './_components/SearchResultsSkeleton';
 
-const SearchResults = () => {
+const Results = () => {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get('search');
 
@@ -49,6 +50,14 @@ const SearchResults = () => {
         </div>
       ))}
     </>
+  );
+};
+
+const SearchResults = () => {
+  return (
+    <Suspense>
+      <Results />
+    </Suspense>
   );
 };
 
