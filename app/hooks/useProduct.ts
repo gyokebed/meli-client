@@ -12,7 +12,9 @@ interface Product {
 }
 
 const fetchProduct = async (id: string) => {
-  const { data } = await axios.get(`http://localhost:3000/api/items/${id}`);
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/items/${id}`
+  );
   return data.item;
 };
 

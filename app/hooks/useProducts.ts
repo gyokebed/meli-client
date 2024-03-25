@@ -11,7 +11,7 @@ interface Products {
 
 const fetchProducts = async (searchTerm: string | null) => {
   const { data } = await axios.get(
-    `http://localhost:3000/api/items?q=${searchTerm}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/items?q=${searchTerm}`
   );
   return data.items;
 };
