@@ -5,6 +5,7 @@ import useProducts from '@/app/hooks/useProducts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import SearchResultsSkeleton from './_components/SearchResultsSkeleton';
 
 const SearchResults = () => {
   const searchParams = useSearchParams();
@@ -12,7 +13,7 @@ const SearchResults = () => {
 
   const { data: products, error, isLoading } = useProducts(searchTerm);
 
-  if (isLoading) return 'Cargando...';
+  if (isLoading) return <SearchResultsSkeleton />;
 
   if (error) return error.message;
 

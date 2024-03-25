@@ -18,8 +18,9 @@ const fetchProduct = async (id: string) => {
 
 const useProduct = (id: string) => {
   return useQuery<Product, Error>({
-    queryKey: ['detail'],
+    queryKey: ['detail', id],
     queryFn: () => fetchProduct(id),
+    staleTime: 0,
     retry: 3,
   });
 };

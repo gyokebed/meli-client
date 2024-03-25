@@ -3,6 +3,7 @@
 import { CurrencyFormat } from '@/app/components';
 import useProduct from '@/app/hooks/useProduct';
 import Image from 'next/image';
+import ProductDetailSkeleton from '../_components/ProductDetailSkeleton';
 
 interface Props {
   params: { id: string };
@@ -13,11 +14,12 @@ const ProductDetail = ({ params }: Props) => {
 
   const { data: product, error, isLoading } = useProduct(id);
 
-  if (isLoading) return 'cargando...';
+  if (isLoading) return <ProductDetailSkeleton />;
 
   if (error) return error.message;
 
   const condition = product!.condition.toString() === 'new';
+  console.log(product?.picture);
 
   return (
     <div className="grid">
@@ -29,6 +31,7 @@ const ProductDetail = ({ params }: Props) => {
           sizes="100vw"
           style={{ width: 680, height: 'auto' }}
           alt="Product Image"
+          priority
         />
         <div className="m-b-2x m-l-2x">
           <h2 className="text-sm-2x m-b-2x">Descripci&oacute;n del producto</h2>
