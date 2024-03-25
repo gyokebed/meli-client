@@ -29,7 +29,7 @@ const Results = () => {
                 src={item.picture}
                 width={180}
                 height={180}
-                alt="Product Image"
+                alt="Imagen del producto"
               />
             </Link>
             <div>
@@ -44,7 +44,7 @@ const Results = () => {
               </Link>
             </div>
           </div>
-          <div className="col-12 col-md-1">
+          <div className="col-12 col-md-1 hide-sm">
             <p className="text-xs m-t-3x">Capital federal</p>
           </div>
         </div>

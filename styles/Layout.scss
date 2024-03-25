@@ -1,8 +1,19 @@
+// Variables
+
 $yellow: #FFE600;
 $gray-soft: #EEEEEE;
 $gray-middle: #999999;
 $black: #333333;
 $blue: #3483FA;
+$columns: 12;
+$gap: 15px;
+$breakpoints: (
+    xs: 480px,
+    sm: 768px,
+    md: 960px,
+    lg: 1170px,
+    xl: 1280px
+);
 
 .search-bar {
   background-color: $yellow;
@@ -33,6 +44,7 @@ $blue: #3483FA;
 .flex {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 .center {
   align-items: center;
@@ -144,15 +156,18 @@ h2 {
     border-radius: 8px;
   }
 }
-$columns: 12;
-$gap: 15px;
-$breakpoints: (
-    xs: 480px,
-    sm: 768px,
-    md: 960px,
-    lg: 1170px,
-    xl: 1280px
-);
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-gap: $gap;
+  gap: $gap;
+  padding: 20px;
+}
+.hide-sm {
+  display: none;
+}
+
+// Mixins
 @mixin create-selectors($breakpoint: null) {
     $infix: if($breakpoint == null, '', '-#{$breakpoint}');
 
@@ -171,18 +186,19 @@ $breakpoints: (
         }
     }
 }
-.grid {
-    display: grid;
-    grid-template-columns: repeat($columns, 1fr);
-    grid-gap: $gap;
-    gap: $gap;
-    padding: 20px;
-}
+
 @media only screen and (min-width: 1170px) {
  .grid {
     padding: 0;
  }
+ .hide-sm {
+  display: block;
+ }
+ .flex {
+  flex-direction: row;
 }
+}
+
 @include create-selectors;
 @each $breakpoint, $width in $breakpoints {
     @media (min-width: $width) {

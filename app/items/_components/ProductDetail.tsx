@@ -30,7 +30,7 @@ const ProductDetail = ({ params }: Props) => {
             height={0}
             sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
-            alt="Product Image"
+            alt="Imagen del producto"
             priority
           />
         </div>
