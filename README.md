@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About The Project
 
-## Getting Started
+### MELI Test Front End
 
-First, run the development server:
+[![MELI App Screen Shot][product-screenshot]]()
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+MELI Front End Challenge
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Built With
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Frameworks/libraries/languages used to develop this project.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- React v18.2.0
+- Next v14.1.4
+- Typescript
+- Axios
+- React Query
+- Sass
 
-## Learn More
+## Recommended IDE Setup
 
-To learn more about Next.js, take a look at the following resources:
+[VSCode](https://code.visualstudio.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customize configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+See [Next.js Configuration Reference](https://nextjs.org/docs/app/api-reference/next-config-js).
 
-## Deploy on Vercel
+### Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repo
+   ```sh
+   git clone git@github.com:gyokebed/meli-client.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run dev
+   ```sh
+   npm run dev
+   ```
+4. Run build
+   ```sh
+   npm run build
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Roadmap
+
+- [x] Add Search bar component for searching products
+  - [x] Home Page
+- [x] Fetch Products
+  - [x] Display search results in /items?search=
+- [x] Fetch product detail
+  - [x] Display product detail in /items/:id
+- [x] Styling Components with Sass
+- [x] Add Skeletons
+- [x] Add SEO
+- [x] Deploy
+
+[product-screenshot]: public/screenshot.png
